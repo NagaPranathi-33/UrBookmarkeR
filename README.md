@@ -6,7 +6,7 @@ This application allows users to securely log in using **Google OAuth**, add and
 
 ---
 
-## 🚀 Live Demo
+##  Live Demo
 
 🌐 Live URL: https://ur-bookmarke-r.vercel.app/
 
@@ -14,18 +14,18 @@ This application allows users to securely log in using **Google OAuth**, add and
 
 ---
 
-## ✨ Features
+##  Features
 
-- 🔐 Google OAuth Authentication (No email/password)
-- ➕ Add bookmarks (Title + URL)
-- 🗑️ Delete your own bookmarks
-- 🔒 Bookmarks are private per user
-- ⚡ Real-time updates across multiple tabs (powered by Supabase Realtime)
-- 🌍 Fully deployed on Vercel
+-  Google OAuth Authentication (No email/password)
+-  Add bookmarks (Title + URL)
+-  Delete your own bookmarks
+-  Bookmarks are private per user
+-  Real-time updates across multiple tabs (powered by Supabase Realtime)
+-  Fully deployed on Vercel
 
 ---
 
-## 🏗️ Tech Stack
+##  Tech Stack
 
 - **Frontend:** Next.js (App Router)
 - **Backend & Database:** Supabase (Auth, PostgreSQL, Realtime)
@@ -34,7 +34,7 @@ This application allows users to securely log in using **Google OAuth**, add and
 
 ---
 
-## 🧠 Architecture Overview
+##  Architecture Overview
 
 - Google OAuth handled via Supabase Auth
 - User session managed securely on the client
@@ -44,7 +44,7 @@ This application allows users to securely log in using **Google OAuth**, add and
 
 ---
 
-## 🧩 Database Design
+##  Database Design
 
 ### Bookmarks Table
 
@@ -112,6 +112,3 @@ Managing frontend-backend data flow
 Debugging runtime errors effectively
 Writing cleaner and more maintainable code
 
-Final Thoughts
-
-This project helped me improve my understanding of full-stack integration and debugging real-world issues. I focused not only on making the application work but also on keeping the structure clean and understandable.
