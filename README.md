@@ -1,40 +1,41 @@
-<<<<<<< HEAD
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Challenges Faced
+1. Supabase API Integration
 
-## Getting Started
+Problem:
+Connecting the frontend with Supabase and handling API responses correctly was initially challenging. I faced issues with incorrect function calls and handling asynchronous operations.
 
-First, run the development server:
+Solution:
+Carefully reviewed Supabase documentation
+Debugged API responses using console logs
+Ensured proper async/await handling
+Structured database queries properly
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+2. Runtime Errors (e.g., Undefined Functions)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Problem:
+At one point, I encountered errors like: deleteBookmark is not defined
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Solution:
+Traced the function reference in the component
+Ensured proper function declaration and export
+Verified correct binding and usage inside event handlers
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Meeting Requirement #4
 
-## Learn More
+Problem:
+Requirement #4 required careful implementation and testing to ensure everything worked as expected.
 
-To learn more about Next.js, take a look at the following resources:
+Solution:
+Broke the requirement into smaller tasks
+Tested each part individually
+Refactored the structure to keep the logic clean and scalable
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+What I Learnt was
+Practical integration of Supabase in a real project
+Managing frontend-backend data flow
+Debugging runtime errors effectively
+Writing cleaner and more maintainable code
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Final Thoughts
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-=======
-# UrBookmarkeR
->>>>>>> e60b907da4fd0eab51cf950811416a302fce1f92
+This project helped me improve my understanding of full-stack integration and debugging real-world issues. I focused not only on making the application work but also on keeping the structure clean and understandable.
