@@ -1,4 +1,80 @@
-Challenges Faced
+# 🔖 UrBookmarkeR - Smart Bookmark App
+
+A full-stack, real-time bookmark manager built using **Next.js (App Router)** and **Supabase**.  
+
+This application allows users to securely log in using **Google OAuth**, add and manage private bookmarks, and experience real-time updates across multiple tabs — all deployed live on Vercel.
+
+---
+
+## 🚀 Live Demo
+
+🌐 Live URL: [Add your Vercel deployment link here]
+
+🔗 GitHub Repository: [Add your GitHub repo link here]
+
+---
+
+## ✨ Features
+
+- 🔐 Google OAuth Authentication (No email/password)
+- ➕ Add bookmarks (Title + URL)
+- 🗑️ Delete your own bookmarks
+- 🔒 Bookmarks are private per user
+- ⚡ Real-time updates across multiple tabs (powered by Supabase Realtime)
+- 🌍 Fully deployed on Vercel
+
+---
+
+## 🏗️ Tech Stack
+
+- **Frontend:** Next.js (App Router)
+- **Backend & Database:** Supabase (Auth, PostgreSQL, Realtime)
+- **Styling:** Tailwind CSS
+- **Deployment:** Vercel
+
+---
+
+## 🧠 Architecture Overview
+
+- Google OAuth handled via Supabase Auth
+- User session managed securely on the client
+- Bookmarks stored in Supabase PostgreSQL
+- Row Level Security (RLS) ensures users can only access their own bookmarks
+- Supabase Realtime subscription keeps UI synced across tabs instantly
+
+---
+
+## 🧩 Database Design
+
+### Bookmarks Table
+
+| Column      | Type      | Description                  |
+|-------------|-----------|------------------------------|
+| id          | uuid      | Primary key                  |
+| user_id     | uuid      | Foreign key (auth user)      |
+| title       | text      | Bookmark title               |
+| url         | text      | Bookmark URL                 |
+| created_at  | timestamp | Auto-generated timestamp     |
+
+### Security
+
+- Row Level Security (RLS) enabled
+- Policy ensures:
+  - Users can insert only their own bookmarks
+  - Users can view only their own bookmarks
+  - Users can delete only their own bookmarks
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1️⃣ Clone the repository
+
+```bash
+git clone <your-repo-url>
+cd smart-bookmark-app
+```
+###   **Challenges Faced**
 1. Supabase API Integration
 
 Problem:
