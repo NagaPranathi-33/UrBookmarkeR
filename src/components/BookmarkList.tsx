@@ -16,13 +16,24 @@ export default function BookmarkList({ user }: any) {
     if (data) setBookmarks(data)
   }
 
-  // ✅ MAKE SURE THIS EXISTS
+   // ✅ MAKE SURE THIS EXISTS
+  // const deleteBookmark = async (id: string) => {
+  //   await supabase
+  //     .from('bookmarks')
+  //     .delete()
+  //     .eq('id', id)
+  // }
+
   const deleteBookmark = async (id: string) => {
-    await supabase
-      .from('bookmarks')
-      .delete()
-      .eq('id', id)
-  }
+  const confirmDelete = confirm("Are you sure you want to delete this bookmark?")
+  if (!confirmDelete) return
+
+  await supabase
+    .from('bookmarks')
+    .delete()
+    .eq('id', id)
+}
+
 
   useEffect(() => {
     if (!user) return
@@ -50,7 +61,8 @@ export default function BookmarkList({ user }: any) {
   }, [user])
 
   return (
-    <div className="space-y-4">
+    <div className="border p-4 rounded-xl shadow-sm flex justify-between items-center hover:shadow-md hover:scale-[1.02] transition-all duration-200 bg-white">
+
       {bookmarks.length === 0 && (
         <p className="text-gray-500 text-sm">No bookmarks yet.</p>
       )}
@@ -75,8 +87,7 @@ export default function BookmarkList({ user }: any) {
 
           <button
             onClick={() => deleteBookmark(bookmark.id)}
-            className="px-2 py-1 text-sm bg-red-100 text-red-600 rounded"
-          >
+            className="px-3 py-1 text-sm bg-red-100 text-red-600 rounded-full hover:bg-red-200 hover:scale-105 transition">
             Delete
           </button>
         </div>

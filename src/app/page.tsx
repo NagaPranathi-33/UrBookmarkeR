@@ -2,58 +2,113 @@
 
 import { useEffect, useState } from "react"
 import { supabase } from "@/lib/supabaseClient"
-import LoginButton from "@/components/LoginButton"
 import BookmarkForm from "@/components/BookmarkForm"
 import BookmarkList from "@/components/BookmarkList"
 
 export default function Home() {
-
   const [user, setUser] = useState<any>(null)
-  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const getUser = async () => {
       const { data } = await supabase.auth.getUser()
       setUser(data.user)
-      setLoading(false)
     }
 
     getUser()
-
-    const { data: listener } = supabase.auth.onAuthStateChange(
-      (_event, session) => {
-        setUser(session?.user ?? null)
-      }
-    )
-
-    return () => {
-      listener.subscription.unsubscribe()
-    }
   }, [])
 
-  if (loading) {
-    return <div className="p-10">Loading...</div>
+  const signOut = async () => {
+    await supabase.auth.signOut()
+    window.location.reload()
   }
 
   if (!user) {
     return (
-      <div className="flex h-screen items-center justify-center">
-        <LoginButton />
+      <div className="min-h-screen flex items-center justify-center text-gray-500">
+        Loading...
       </div>
     )
   }
 
   return (
-    <div className="max-w-xl mx-auto mt-10">
-      <h1 className="text-xl mb-4">
-        Welcome {user.email}
-      </h1>
+    <main className="min-h-screen bg-gray-100">
+      <div className="bg-white shadow-sm p-4 flex justify-between items-center border-b">
+        <div>
+          <h1 className="font-bold text-xl tracking-tight">
+            Smart Bookmark
+          </h1>
+          <p className="text-sm text-gray-500">
+            {user.email}
+          </p>
+        </div>
 
-      <BookmarkForm user={user} />
-      <BookmarkList user={user} />
-    </div>
+        <button
+          onClick={signOut}
+          className="px-4 py-2 bg-red-500 text-white rounded-full hover:bg-red-600 hover:scale-105 transition"
+        >
+          Sign Out
+        </button>
+      </div>
+
+      <div className="max-w-2xl mx-auto p-4">
+        <BookmarkForm user={user} />
+        <BookmarkList user={user} />
+      </div>
+    </main>
   )
 }
+
+
+
+
+// export default function Home() {
+
+//   const [user, setUser] = useState<any>(null)
+//   const [loading, setLoading] = useState(true)
+
+//   useEffect(() => {
+//     const getUser = async () => {
+//       const { data } = await supabase.auth.getUser()
+//       setUser(data.user)
+//       setLoading(false)
+//     }
+
+//     getUser()
+
+//     const { data: listener } = supabase.auth.onAuthStateChange(
+//       (_event, session) => {
+//         setUser(session?.user ?? null)
+//       }
+//     )
+
+//     return () => {
+//       listener.subscription.unsubscribe()
+//     }
+//   }, [])
+
+//   if (loading) {
+//     return <div className="p-10">Loading...</div>
+//   }
+
+//   if (!user) {
+//     return (
+//       <div className="flex h-screen items-center justify-center">
+//         <LoginButton />
+//       </div>
+//     )
+//   }
+
+//   return (
+//     <div className="max-w-xl mx-auto mt-10">
+//       <h1 className="text-xl mb-4">
+//         Welcome {user.email}
+//       </h1>
+
+//       <BookmarkForm user={user} />
+//       <BookmarkList user={user} />
+//     </div>
+//   )
+// }
 
 
 
