@@ -8,9 +8,9 @@ This application allows users to securely log in using **Google OAuth**, add and
 
 ## 🚀 Live Demo
 
-🌐 Live URL: [(https://ur-bookmarke-r.vercel.app/)]
+🌐 Live URL: https://ur-bookmarke-r.vercel.app/
 
-🔗 GitHub Repository: [(https://github.com/NagaPranathi-33/UrBookmarkeR/)]
+🔗 GitHub Repository: https://github.com/NagaPranathi-33/UrBookmarkeR/
 
 ---
 
